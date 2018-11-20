@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  api:
+    build: .
+    environment:
+      VIRTUAL_HOST: api.vllirette.com
+      ASPNETCORE_ENVIRONMENT: Development
+    networks:
+      - nginxproxy
+      - mongodb
+    ports:
+      - 8082:80
+
+networks:
+  nginxproxy:
+    external:
+      name: nginxproxy
+  mongodb:
+    external:
+      name: mongodb
