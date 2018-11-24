@@ -1,16 +1,17 @@
 version: '3'
 
 services:
-  api:
+  test_api:
     build: .
+    container_name: test-api
     environment:
-      VIRTUAL_HOST: api.vllirette.com
+      VIRTUAL_HOST: test.vllirette.com
       ASPNETCORE_ENVIRONMENT: Development
     networks:
       - nginxproxy
       - mongodb
-    ports:
-      - 8082:80
+    #ports:
+    #  - 8082:80
 
 networks:
   nginxproxy:
